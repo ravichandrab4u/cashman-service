@@ -1,4 +1,4 @@
-package com.wns.impl;
+package com.wns.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
