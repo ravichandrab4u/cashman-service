@@ -1,0 +1,4 @@
+com\wns\CashmanServiceApplication.class
+com\wns\service\CashmanService.class
+com\wns\controller\CashmanServiceController.class
+com\wns\docs\SwaggerConfig.class

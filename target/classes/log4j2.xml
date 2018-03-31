@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" name="cashman-service">
+	<Properties>
+    	<Property name="servicelogs">logs/cashmanservice</Property>
+	</Properties>
+	
+	<Appenders>
+		<RollingRandomAccessFile  immediateFlush="false" name="fileAppender" fileName="${servicelogs}.log" append="true"
+				filePattern="${servicelogs}.log.%d{yyyyMMdd}-%i.log">
+      		<PatternLayout pattern="%d{ABSOLUTE} %p %c{1} - %m%n"/>
+      		<Policies>
+        		<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+        		<SizeBasedTriggeringPolicy size="250 MB"/>
+      		</Policies>
+      		<Filters>  
+      			<ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>     			
+      			<ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>        			
+      		</Filters>      				
+    	</RollingRandomAccessFile>
+	
+		<RollingRandomAccessFile  immediateFlush="false" name="errorfileAppender" fileName="${servicelogs}errors.log" append="true"
+				filePattern="${servicelogs}errors.log.%d{yyyyMMdd}-%i.log">
+      		<PatternLayout pattern="%d{ABSOLUTE} %p %c{1} - %m%n"/>
+      		<Policies>
+        		<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+        		<SizeBasedTriggeringPolicy size="250 MB"/>
+      		</Policies>
+      		<Filters>
+      			<ThresholdFilter level="WARN"/>        			
+      		</Filters> 
+    	</RollingRandomAccessFile>
+	
+		<Console  name="stdout" target="SYSTEM_OUT">
+      		<PatternLayout pattern="%d{ISO8601} [%t] %p %c{1} - %m%n"/>      	
+      		<ThresholdFilter level="INFO"/>
+    	</Console >
+	</Appenders>
+
+
+	<Loggers>
+	    <AsyncRoot level="INFO" includeLocation="true">
+	      	<AppenderRef ref="fileAppender"/>	    
+	    	<AppenderRef ref="errorfileAppender"/>	 
+	    </AsyncRoot>
+	</Loggers>
+  
+</Configuration>

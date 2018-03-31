@@ -1,0 +1,91 @@
+{
+	"info": {
+		"name": "Cashman",
+		"_postman_id": "e6d1079c-bdbf-f5e3-f842-c2c996fd8529",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Current Cash Stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:9092/cashman/currectcash",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"cashman",
+						"currectcash"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ADD/Remove Cash",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"OPERATION\": \"REMOVE\",\n\"20$\": 10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9092/cashman/modifycurrency",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"cashman",
+						"modifycurrency"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "With Draw Cash",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:9092/cashman/withdraw?withdrawamount=470",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"cashman",
+						"withdraw"
+					],
+					"query": [
+						{
+							"key": "withdrawamount",
+							"value": "470",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
