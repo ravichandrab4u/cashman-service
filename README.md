@@ -4,7 +4,9 @@ mvn spring-boot:run
 Command to build docker image
 ./mvnw install dockerfile:build
 
-Sample Requests
+POST Man Project is inculded in the Project which contains all sample request
+
+Sample Health Requests
 
 Request1
 Test Service
