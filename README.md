@@ -25,6 +25,6 @@ http://localhost:9092/swagger-ui.html
 
 Pending/Improvements
 
-1) Add BDD Test Cases using cobertura
+1) Add BDD Test Cases using cucumber
 2) This project can be extended to other demoninations
 3) Add Static Code analyser using SonarQube
